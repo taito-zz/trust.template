@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<layers>
+  <layer
+    interface="trust.template.browser.interfaces.ITrustTemplateLayer"
+    name="trust.template"
+    />
+</layers>
