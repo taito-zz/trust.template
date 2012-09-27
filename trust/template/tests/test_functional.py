@@ -1,10 +1,10 @@
-from trust.template.tests.base import FUNCTIONAL_TESTING
 from hexagonit.testing.browser import Browser
-from plone.app.testing import setRoles
 from plone.app.testing import TEST_USER_ID
 from plone.app.testing import TEST_USER_NAME
 from plone.app.testing import TEST_USER_PASSWORD
+from plone.app.testing import setRoles
 from plone.testing import layered
+from trust.template.tests.base import FUNCTIONAL_TESTING
 from zope.testing import renormalizing
 
 import doctest
@@ -15,7 +15,7 @@ import re
 import transaction
 import unittest
 
-FLAGS = doctest.NORMALIZE_WHITESPACE | doctest.ELLIPSIS # | doctest.REPORT_NDIFF | doctest.REPORT_ONLY_FIRST_FAILURE
+FLAGS = doctest.NORMALIZE_WHITESPACE | doctest.ELLIPSIS
 
 CHECKER = renormalizing.RENormalizing([
     # Normalize the generated UUID values to always compare equal.

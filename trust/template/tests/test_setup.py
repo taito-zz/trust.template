@@ -17,6 +17,11 @@ class TestCase(IntegrationTestCase):
         from plone.browserlayer import utils
         self.failUnless(ITrustTemplateLayer in utils.registered_layers())
 
+    def test_metadata__version(self):
+        setup = getToolByName(self.portal, 'portal_setup')
+        self.assertEqual(
+            setup.getVersionForProfile('profile-trust.template:default'), u'0')
+
     def test_uninstall__package(self):
         installer = getToolByName(self.portal, 'portal_quickinstaller')
         installer.uninstallProducts(['trust.template'])

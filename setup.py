@@ -27,6 +27,7 @@ setup(
         'hexagonit.testing',
         'plone.browserlayer',
         'setuptools',
+        'z3c.jbot',
         'zope.i18nmessageid'],
     entry_points="""
     # -*- Entry points: -*-
