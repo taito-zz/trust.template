@@ -22,6 +22,13 @@ class TestCase(IntegrationTestCase):
         self.assertEqual(
             setup.getVersionForProfile('profile-trust.template:default'), u'0')
 
+    def test_setuphandlers__remove_front_page(self):
+        self.assertIsNone(self.portal.get('front-page'))
+
+    def test_setuphanders__set_enable_user_folders(self):
+        from plone.app.controlpanel.security import ISecuritySchema
+        self.assertTrue(ISecuritySchema(self.portal).get_enable_user_folders())
+
     def test_uninstall__package(self):
         installer = getToolByName(self.portal, 'portal_quickinstaller')
         installer.uninstallProducts(['trust.template'])

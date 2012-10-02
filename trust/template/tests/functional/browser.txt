@@ -1,3 +1,12 @@
+Visit Site as Anonymous::
+
+    >>> browser.open('/')
+
+    >>> browser.url
+    'http://nohost/plone/login_form'
+
 Log in as Manager::
 
     >>> browser.login(TEST_USER_NAME, TEST_USER_PASSWORD)
+    >>> browser.url
+    'http://nohost/plone/Members/test_user_1_'

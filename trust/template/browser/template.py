@@ -1,3 +1,4 @@
+from Products.CMFCore.utils import getToolByName
 from Products.CMFPlone.interfaces.siteroot import IPloneSiteRoot
 from five import grok
 from plone.app.layout.globals.interfaces import IViewView
@@ -18,10 +19,13 @@ class PloneSiteRootView(grok.View):
     grok.view(IViewView)
 
     def update(self):
-        plone_portal_state = getMultiAdapter(
-            (self.context, self.request), name=u'plone_portal_state')
-        if plone_portal_state.anonymous():
+        plone_portal_state = getMultiAdapter((self.context, self.request),
+            name='plone_portal_state')
+        membership = getToolByName(self.context, 'portal_membership')
+        if membership.isAnonymousUser():
             url = '{}/login_form'.format(plone_portal_state.portal_url())
             self.request.response.redirect(url)
+        elif membership.getHomeFolder():
+            self.request.response.redirect(membership.getHomeUrl())
         else:
             self.template

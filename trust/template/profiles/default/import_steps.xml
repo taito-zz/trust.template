@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<import-steps>
+  <import-step
+    handler="trust.template.setuphandlers.setupVarious"
+    id="trust.template.various"
+    title="trust.template: miscellaneous import steps"
+    version="20121002-01">
+    Various import steps that are not handled by GS import/export
+    handlers.
+  </import-step>
+</import-steps>
